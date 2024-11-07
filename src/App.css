@@ -1,133 +1,402 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+/* App.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Global Styles */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Sour Gummy", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* App Container */
 .App {
+  text-align: center;
+  padding: 20px;
+  background-color: #1e1e1e;
+  min-height: 100vh;
+}
+
+/* Title Section */
+.title h1 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* Todo Container */
+.todo_container {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #cbcbf3;
+  gap: 15px;
 }
 
-.title {
-  margin: 30px 0;
-  text-align: center;
-}
-
-.title h1 {
-  color: #3a3a3a;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background: white;
-  padding: 10px 20px;
-  margin-top: 50px;
-  border-radius: 5px;
-  box-shadow: 1px 2px 10px #ddd;
-}
-
-form h3 {
-  text-align: center;
-}
-
-form input {
-  width: 100%;
-  padding: 10px 5px;
-  outline: none;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-}
-
-.input_container {
-  margin-bottom: 20px;
-}
-
-.btn_container {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.btn_container button {
-  background: #333;
-  color: white;
-  padding: 10px 20px;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-}
-
-.todo_container {
-  width: 50%;
-  margin: 0 auto;
-}
-
+/* Todo Item Styles */
 .todo {
-  margin-top: 20px;
-  background: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 2px 10px #ddd;
+  border: 1px solid #444;
 }
 
-.todo input {
-  cursor: pointer;
-  width: 50%;
-  border: none;
-  outline: none;
-  cursor: pointer;
+.list {
   background-color: transparent;
-  font-size: 28px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-}
-
-.button-complete,
-.button-delete,
-.button-edit {
   border: none;
+  color: #e0e0e0;
+  font-size: 1rem;
   outline: none;
-  cursor: pointer;
+  flex: 1;
+}
+
+.list:focus {
+  border-bottom: 2px solid #777;
+}
+
+/* Button Styles */
+button {
   background-color: transparent;
-  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #e0e0e0;
 }
 
-#i {
-  font-size: 35px;
+button:hover {
+  color: #ff4081; /* Hover color */
 }
 
-.button-complete {
-  color: #95faa3;
+.button-complete, .button-edit, .button-delete {
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.button-complete:hover {
+  background-color: #4caf50;
+}
+
+.button-edit:hover {
+  background-color: #ff9800;
+}
+
+.button-delete:hover {
+  background-color: #f44336;
+}
+
+/* Add Todo Form */
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+input[type="text"] {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
   margin-right: 10px;
 }
 
-.button-edit {
-  color: #56cfff;
-  margin-right: 10px;
-}
-
-.button-delete {
-  color: rgb(255, 122, 98);
-}
-
-@media screen and (max-width: 667px) {
-  .todo_container {
-    width: 90%;
-  }
-}
-
-input:focus,
-button:focus {
+input[type="text"]:focus {
   outline: none;
+  border: 1px solid #777;
+}
+
+button[type="submit"] {
+  background-color: #6200ea;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #3700b3;
+}
+
+/* Sign In Button */
+button {
+  background-color: #03a9f4;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0288d1;
+}
+
+/* App.css */
+
+.landing-page img {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-bottom: 20px; /* Add some space below the image */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.landing-page img:hover {
+  transform: scale(1.1); /* Scale the image on hover */
+}
+
+.heading{
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+/* AddTodo.css or App.css */
+
+/* Header layout to align title and image side by side */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 32px; /* Set a size for the heading */
+  margin: 0;
+  color : greenyellow;
+}
+
+.header-image {
+  width: 32px; /* Set the image width equal to the heading size */
+  height: auto;
+  margin-left: 20px; /* Space between heading and image */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* General Layout */
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #121212;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.sign-in-btn {
+  padding: 12px 24px;
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.sign-in-btn:hover {
+  background-color: #e68900;
+  transform: scale(1.2); /* Scale the button on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.sign-in-btn:active {
+  transform: scale(1); /* Remove scaling effect when clicked */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Revert shadow back to normal */
+}
+
+/* Landing Page */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.landing-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 10px;
+}
+
+.landing-image {
+  /* max-width: 300px; */
+  min-height : 300px;
+  min-width: 300px;
+  margin-right: 30px;
+}
+
+.text-content {
+  max-width: 900px;
+  margin-left: 30px;
+  
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-size: 4rem;
+}
+
+.text-content p {
+  /* line-height: 1.5; */
+  font-size: 2rem;
+}
+
+/* Todo Section */
+.todo_container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.list {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+
+.header .heading{
+  font-size: 5rem;
+}
+
+.p1 , .p2 , .p3{
+  color: rgb(105, 131, 172);
+}
+
+.header-image {
+  width: 70px; /* Adjust the image size as needed */
+  height: 50px;
+  /* margin-right: 20px; Space between the image and the title */
+}
+
+.sign-out-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header .sign-out-btn {
+  margin-left: auto; /* Pushes the button to the rightmost side */
+}
+
+.sign-out-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.new{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+.heading {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff9800; /* You can adjust the color to match your theme */
+  margin: 0;
+}
+
+/* Image styling */
+.header-image {
+  width: 50px; /* You can adjust this size */
+  height: auto;
+  object-fit: contain; /* Ensures the image scales properly */
+}
+
+.marg{
+  margin-top: 7rem;
 }

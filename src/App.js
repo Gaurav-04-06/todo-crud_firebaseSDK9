@@ -1,9 +1,8 @@
 import "./App.css";
 import React from "react";
-import Title from "./components/Title";
 import AddTodo from "./components/AddTodo";
 import Todo from "./components/Todo";
-import { signInWithGoogle, auth } from "./auth.js"; 
+import { signInWithGoogle, auth } from "./auth.js";
 import { collection, query, where, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -54,18 +53,52 @@ function App() {
 
   return (
     <div className="App">
-      <h1>To-Do App</h1>
+      <div className="header">
+        <h1 className="heading">
+          {!user? <h1 className="heading">To-Do App</h1> 
+          : <div className="header ">
+            <h1 className="heading">To-Do App</h1> 
+            <img src="todo.png" alt="To-Do App Logo" className="header-image" />
+        </div>
+        }
+        </h1>
+        {!user ? 
+        (
+          <button className="sign-in-btn" onClick={signInWithGoogle}>Sign In with Google</button>
+        )
+        :
+        <button className="sign-in-btn" onClick={() => auth.signOut()}>Sign Out</button>
+        }
+      </div>
 
       {!user ? (
-        <button onClick={signInWithGoogle}>Sign In with Google</button>
+        <div className="landing-page">
+          <div className="landing-content">
+            <img src="image.jpg" alt="To-Do App Logo" className="landing-image" /> {/* Replace with a relevant image */}
+            <div className="text-content">
+              <h2>Welcome to the To-Do App!</h2>
+              <p className="p1">
+                This is your personal to-do list where you can manage tasks efficiently. 
+                Get started by signing in with your Google account and start adding your to-dos today!
+              </p>
+              <p className="p2">
+                Whether it's work, personal goals, or daily chores, this app helps you stay organized and productive. 
+                Track your progress, set reminders, and mark your tasks as complete when you're done.
+              </p>
+              <p className="p3">
+                Your to-do list is synced across devices, so you can access it anytime, anywhere. 
+                Get started now and take control of your day!
+              </p>
+            </div>
+          </div>
+          
+        </div>
       ) : (
         <div>
-          <button onClick={() => auth.signOut()}>Sign Out</button>
-          <div>
-            <Title />
-          </div>
-          <div>
-            <AddTodo userId={user.uid} /> {/* Pass userId to AddTodo */}
+          
+          
+          <div className="marg">
+            <AddTodo userId={user.uid} /> 
           </div>
           <div className="todo_container">
             {todos.map((todo) => (

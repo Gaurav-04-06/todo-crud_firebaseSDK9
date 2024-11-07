@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase.js";
 
-const AddTodo = ({ userId }) => {
+const AddTodo = ({ userId, signOut }) => {
   const [title, setTitle] = useState("");
 
   const handleAddTodo = async (e) => {
@@ -23,14 +23,17 @@ const AddTodo = ({ userId }) => {
 
       setTitle("");  // Reset the title input after adding the todo
     } catch (error) {
-      
-        console.error("Error adding to-do:", error);  // This will print the detailed error
+      console.error("Error adding to-do:", error);  // This will print the detailed error
       alert("An error occurred while adding the to-do.");  // Display a user-friendly error message
     }
   };
 
   return (
     <div>
+      
+
+      {/* Form to add a new Todo */}
+      
       <form onSubmit={handleAddTodo}>
         <input
           type="text"
@@ -40,6 +43,7 @@ const AddTodo = ({ userId }) => {
         />
         <button type="submit">Add Todo</button>
       </form>
+      
     </div>
   );
 };
