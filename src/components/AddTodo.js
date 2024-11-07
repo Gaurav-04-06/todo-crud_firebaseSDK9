@@ -1,33 +1,47 @@
-import React from "react";
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useState } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase.js";
 
-export default function AddTodo() {
-  const [title, setTitle] = React.useState("");
+const AddTodo = ({ userId }) => {
+  const [title, setTitle] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleAddTodo = async (e) => {
     e.preventDefault();
-    if (title !== "") {
+
+    if (title.trim() === "") {
+      alert("Please enter a title for the todo!");
+      return;
+    }
+
+    try {
+      // Add new todo with userId to ensure each user has their own todos
       await addDoc(collection(db, "todos"), {
-        title,
+        title: title,
         completed: false,
+        userId: userId,  // Make sure this is being passed properly
       });
-      setTitle("");
+
+      setTitle("");  // Reset the title input after adding the todo
+    } catch (error) {
+      
+        console.error("Error adding to-do:", error);  // This will print the detailed error
+      alert("An error occurred while adding the to-do.");  // Display a user-friendly error message
     }
   };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input_container">
+    <div>
+      <form onSubmit={handleAddTodo}>
         <input
           type="text"
-          placeholder="Enter todo..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder="Add a new task"
         />
-      </div>
-      <div className="btn_container">
-        <button>Add</button>
-      </div>
-    </form>
+        <button type="submit">Add Todo</button>
+      </form>
+    </div>
   );
-}
+};
+
+export default AddTodo;
