@@ -36,3 +36,4 @@ jobs:
           action: 'upload'
           app_location: '/'  # App root folder
           output_location: 'build'  # Build output folder
+          skip_deploy_on_missing_secrets: true
